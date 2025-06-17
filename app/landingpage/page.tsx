@@ -5,8 +5,14 @@ const Landingpage = () => {
 
   if (!show) return null;
   return (
-    <div className="fixed inset-0 z-50 p-2 flex items-center justify-center bg-black/75 min-h-screen">
-      <div className="sm:p-4 p-2 bg-white rounded-2xl">
+    <div
+      className="fixed inset-0 z-50 p-2 flex items-center justify-center bg-black/75 min-h-screen"
+      onClick={() => setShow(false)}
+    >
+      <div
+        className="sm:p-4 p-2 bg-white rounded-2xl"
+        onClick={e => e.stopPropagation()}
+      >
         <div className="bg-[#EDEFF7]  rounded-xl shadow-xl max-w-xl w-full p-4 sm:p-8 relative max-h-[90vh] overflow-y-auto">
           <button
             onClick={() => setShow(false)}

@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-body {
-    @apply font-sans;
-}
-
 .bg-gradient-image {
     position: relative;
     overflow: hidden;
