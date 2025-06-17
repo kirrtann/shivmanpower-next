@@ -21,7 +21,8 @@ const JobDetailCommon = ({ job }: { job: jobtype | undefined }) => {
             <IMage
                 header={job.Job}
                 time={job.time}
-                location={job.location} />
+                location={job.location}
+                headercss="sm:text-3xl text-2xl font-bold" />
 
             <div className="max-w-7xl mx-auto px-4 md:px-8  flex flex-col lg:flex-row gap-8 py-14">
                 <div className="flex-1 bg-white  rounded-xl px-4">

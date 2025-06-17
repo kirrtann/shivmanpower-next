@@ -1,10 +1,8 @@
 "use client"
 import { useParams } from "next/navigation"
-import JobDetailCommon from "../common/jobcommonpage"
-import { Jobdeatil } from "../common/jobdetail"
-import { jobtype } from "../common/type"
-
-
+import JobDetailCommon from "../../common/jobcommonpage"
+import { Jobdeatil } from "../../common/jobdetail"
+import { jobtype } from "../../common/type"
 
 const JobDetailPage = () => {
     const { id } = useParams()

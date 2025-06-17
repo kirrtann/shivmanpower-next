@@ -33,4 +33,5 @@ export interface IMageProps {
     detail?: string;
     time?: string;
     location?: string
+    headercss?:string
 }

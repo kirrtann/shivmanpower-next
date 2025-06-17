@@ -5,7 +5,8 @@ import Servicdetail from "../common/servicdetail"
 const Services = () => {
     return (
         <>
-            <IMage header="Our Services" />
+            <IMage header="Our Services"
+            headercss="text-3xl font-bold mb-5" />
             <div className="py-[60px]">
                 <h3 className="text-3xl font-semibold text-center">Our Services</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 max-w-[1250px] mx-auto px-4">

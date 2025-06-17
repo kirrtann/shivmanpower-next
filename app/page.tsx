@@ -34,18 +34,18 @@ export default function Home() {
         </div>
 
         <button
-          className="absolute left-6 top-1/2 -translate-y-1/2 text-white text-2xl z-10 pointer-events-auto"
+          className="absolute left-6 top-1/2 -translate-y-1/2 text-white sm:text-2xl z-10 pointer-events-auto"
           onClick={prevSlide}
         >
           <FaArrowLeft />
         </button>
         <button
-          className="absolute right-6 top-1/2 -translate-y-1/2 text-white text-2xl z-10 pointer-events-auto"
+          className="absolute right-6 top-1/2 -translate-y-1/2 text-white sm:text-2xl z-10 pointer-events-auto"
           onClick={nextSlide}
         >
           <FaArrowRight />
         </button>
-        <div className="absolute bottom-0 hidden  border p-5 rounded-full sm:block left-1/2 -translate-x-1/2 z-20">
+        <div className="absolute bottom-[-30px] overflow-visible hidden  border border-white p-5 rounded-full sm:block left-1/2 -translate-x-1/2 z-20">
           <button
             onClick={() => {
               const aboutSection = document.getElementById('about-shiv-manpower');
@@ -113,7 +113,7 @@ export default function Home() {
           {Jobdeatil.map((job) => (
             <div
               key={job.id}
-              className="bg-white rounded-xl shadow-md p-6 sm:flex items-center justify-between gap-6 border hover:shadow-lg transition"
+              className="bg-white border-none rounded-xl shadow-md p-4 sm:flex items-center justify-between gap-6 border hover:shadow-lg transition"
             >
               <div className="flex items-center gap-6 flex-1 mb-3">
                 <img
@@ -139,8 +139,8 @@ export default function Home() {
                 </div>
               </div>
               <Link
-                href={`/job/${job.id}`}
-                className="px-6 py-2 bg-[#466DA8] text-white rounded-lg hover:bg-[#2A356D] transition font-medium"
+                href={`/jobdeailpage/${job.id}`}
+                className="px-6 py-2 bg-[#466DA8] text-white text-sm rounded-md hover:bg-[#2A356D] transition "
               >
                 View more
               </Link>

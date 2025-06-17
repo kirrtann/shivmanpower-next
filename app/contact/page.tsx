@@ -1,8 +1,47 @@
-
+"use client"
+import { useState } from "react"
 import { MdLocationOn, MdCall, MdEmail } from "react-icons/md"
 import IMage from "../common/imagecommon"
 
 const Contact = () => {
+    const [form, setForm] = useState({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+    })
+    const [errors, setErrors] = useState<{ [key: string]: string }>({})
+
+    const validate = () => {
+        const newErrors: { [key: string]: string } = {}
+        if (!form.name.trim()) newErrors.name = "Full Name is required"
+        if (!form.email.trim()) {
+            newErrors.email = "Email is required"
+        } else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(form.email)) {
+            newErrors.email = "Invalid email address"
+        }
+        if (!form.subject.trim()) newErrors.subject = "Subject is required"
+        if (!form.message.trim()) newErrors.message = "Message is required"
+        return newErrors
+    }
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setForm({ ...form, [e.target.name]: e.target.value })
+        setErrors({ ...errors, [e.target.name]: "" })
+    }
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
+        const validationErrors = validate()
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors)
+            return
+        }
+        // Submit logic here
+        alert("Form submitted!")
+        setForm({ name: "", email: "", subject: "", message: "" })
+    }
+
     return (
         <>
             <div className="mt-[]">
@@ -10,32 +49,57 @@ const Contact = () => {
                     header="Beware of Job Scams"
                     pere="We do not charge/accept any amount or security deposit from job seekers during the selection process or while inviting candidates for interview. We have a no-fee policy from job seekers which means that our recruiters/representatives will never seek money from job seekers"
                     detail=" For more details connect us:"
+                    headercss="sm:text-3xl text-xl font-bold"
                 />
             </div>
             <div className="max-w-[1250px] mx-auto py-12 px-[15px]  grid grid-cols-1 md:grid-cols-2 gap-10 ">
                 {/* Contact Form */}
-                <form className="space-y-5 lg:pr-[100px]">
-                    <h2 className=" mb-[-10px] text-xl ">Keep In Touch</h2>
-                    <input
-                        type="text"
-                        placeholder="Full Name"
-                        className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-200 text-gray-700"
-                    />
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-200 text-gray-700"
-                    />
-                    <input
-                        type="text"
-                        placeholder="Subject"
-                        className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-200 text-gray-700"
-                    />
-                    <textarea
-                        placeholder="Message"
-                        rows={4}
-                        className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-200 text-gray-700"
-                    />
+                <form className="space-y-5  lg:pr-[100px]" onSubmit={handleSubmit}>
+                    <h2 className=" mb-[10px] text-xl ">Keep In Touch</h2>
+                    <div>
+                        <input
+                            type="text"
+                            name="name"
+                            value={form.name}
+                            onChange={handleChange}
+                            placeholder="Full Name"
+                            className="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-200 text-gray-700"
+                        />
+                        {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+                    </div>
+                    <div>
+                        <input
+                            type="email"
+                            name="email"
+                            value={form.email}
+                            onChange={handleChange}
+                            placeholder="Email"
+                            className="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-200 text-gray-700"
+                        />
+                        {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+                    </div>
+                    <div>
+                        <input
+                            type="text"
+                            name="subject"
+                            value={form.subject}
+                            onChange={handleChange}
+                            placeholder="Subject"
+                            className="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-200 text-gray-700"
+                        />
+                        {errors.subject && <p className="text-red-500 text-xs mt-1">{errors.subject}</p>}
+                    </div>
+                    <div>
+                        <textarea
+                            name="message"
+                            value={form.message}
+                            onChange={handleChange}
+                            placeholder="Message"
+                            rows={4}
+                            className="w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-200 text-gray-700"
+                        />
+                        {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
+                    </div>
                     <button
                         type="submit"
                         className="bg-[#466DA8] hover:bg-[white] hover:text-[#466DA8] text-white border border-[#466DA8] rounded-lg px-12 py-3 mt-2 transition-colors"

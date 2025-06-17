@@ -4,19 +4,19 @@ import { IMageProps } from "./type";
 
 
 
-const IMage = ({ header, pere, detail, time, location }: IMageProps) => {
+const IMage = ({ header, pere, detail, time, location,headercss }: IMageProps) => {
   return (
     <div className="bg-[#2A356D] opacity-100 z-50">
       <div
-        className="bg-gradient-image  bg-cover flex justify-center items-end pb-5 h-[340px]"
+        className="bg-gradient-image bg-[url(/bgimg.jpg)] bg-center flex justify-center items-end sm:pb-5 max-h-[450px] min-h-[350px] sm:h-[380px]"
       >
-        <div className="text-center text-white px-12">
-          <h3 className="text-3xl mb-[30px] font-bold">{header}</h3>
-          <p className="mt-[20px] ">{pere}</p>
-          <h4 className="text-2xl  mt-[20px]">{detail}</h4>
-          <div className=" flex-none sm:flex   justify-items-start space-y-5 sm:space-y-0 items-center  sm:space-x-5">
+        <div className="text-center text-white sm:px-12 px-2">
+          <h3 className={headercss}>{header}</h3>
+          <p className="sm:mt-[20px] ">{pere}</p>
+          <h4 className="sm:text-2xl  sm:mt-[20px]">{detail}</h4>
+          <div className=" flex-none sm:flex   justify-items-center space-y-5 sm:space-y-0  sm:space-x-5">
             {time && (
-              <p className="border-[#2A356D] text-white">
+              <p className="border-[#2A356D] mt-2 text-white">
                 <span className="border px-5 py-2 rounded-full">{time}</span>
               </p>
             )}

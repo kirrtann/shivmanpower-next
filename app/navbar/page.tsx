@@ -31,7 +31,7 @@ const Navbar = () => {
           <div className="flex items-center space-x-2">
             <button
               onClick={() => setShowApply(true)}
-              className="bg-white text-[#466DA8] hidden sm:block px-5 py-2 rounded-full shadow hover:bg-[#466DA8] hover:text-white border border-[#466DA8] transition"
+              className="bg-white text-[#466DA8] hidden sm:block px-5 py-2 rounded-full shadow hover:bg-[#466DA8] hover:text-white border border-white transition"
             >
               + Apply Now
             </button>
