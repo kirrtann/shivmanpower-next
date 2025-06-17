@@ -27,11 +27,9 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("/lines.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-image: url("/lines2.png");
     opacity: 0.14;
-    z-index: auto;
+    z-index: 1;
 }
 
 .bg-home-image {

@@ -25,7 +25,7 @@ export default function Home() {
         <img
           src={slideimg[current].img}
           alt={slideimg[current].alt}
-          className="w-full h-full object-cover opacity-80 pointer-events-none"
+          className="w-full h-full object-cover opacity-80 pointer-events-none" 
         />
         <div className="absolute inset-0 bg-black opacity-60 pointer-events-none"></div>
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white pointer-events-none">

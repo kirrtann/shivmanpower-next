@@ -3,15 +3,17 @@ import { useState } from "react"
 import { MdLocationOn, MdCall, MdEmail } from "react-icons/md"
 import IMage from "../common/imagecommon"
 
-const Contact = () => {
-    const [form, setForm] = useState({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-    })
-    const [errors, setErrors] = useState<{ [key: string]: string }>({})
+const initialState = {
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+}
 
+const Contact = () => {
+    const [form, setForm] = useState(initialState)
+    const [errors, setErrors] = useState<{ [key: string]: string }>({})
+    const [loading, setLoading] = useState(false);
     const validate = () => {
         const newErrors: { [key: string]: string } = {}
         if (!form.name.trim()) newErrors.name = "Full Name is required"
@@ -22,7 +24,8 @@ const Contact = () => {
         }
         if (!form.subject.trim()) newErrors.subject = "Subject is required"
         if (!form.message.trim()) newErrors.message = "Message is required"
-        return newErrors
+        setErrors(newErrors)
+        return Object.keys(newErrors).length === 0
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -30,16 +33,33 @@ const Contact = () => {
         setErrors({ ...errors, [e.target.name]: "" })
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        const validationErrors = validate()
-        if (Object.keys(validationErrors).length > 0) {
-            setErrors(validationErrors)
-            return
+        if (validate()) {
+            setLoading(true);
+            const formData = new FormData()
+            formData.append("name", form.name)
+            formData.append("email", form.email)
+            formData.append("message", form.message)
+            formData.append("subject", form.subject)
+            try {
+                const res = await fetch("/api/sendMail", {
+                    method: "POST",
+                    body: formData,
+                })
+                const data = await res.json()
+                if (data.success) {
+                    alert("Message sent successfully!")
+                    setForm(initialState)
+                    setErrors({})
+                    setLoading(false);
+                } else {
+                    alert("Failed to send email: " + (data.error || "Unknown error"))
+                }
+            } catch (err) {
+                alert("An error occurred while sending the email.")
+            }
         }
-        // Submit logic here
-        alert("Form submitted!")
-        setForm({ name: "", email: "", subject: "", message: "" })
     }
 
     return (
@@ -103,8 +123,19 @@ const Contact = () => {
                     <button
                         type="submit"
                         className="bg-[#466DA8] hover:bg-[white] hover:text-[#466DA8] text-white border border-[#466DA8] rounded-lg px-12 py-3 mt-2 transition-colors"
+                        disabled={loading}
                     >
-                        Send
+                        {loading ? (
+                            <span>
+                                <svg className="animate-spin h-5 w-5 mr-2 inline" viewBox="0 0 24 24">
+                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                                </svg>
+                                Sending...
+                            </span>
+                        ) : (
+                            "Send"
+                        )}
                     </button>
                 </form>
                 <div className="bg-[#EDEFF7] text-[#888888] rounded-xl justify-center sm:p-8 p-4 flex flex-col text-[13px] ">

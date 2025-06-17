@@ -17,7 +17,7 @@ const initialState = {
 const ApplyNowModal: React.FC<ApplyNowModalProps> = ({ open, onClose }) => {
   const [form, setForm] = useState(initialState);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-
+  const [loading, setLoading] = useState(false);
   if (!open) return null;
 
   const validate = () => {
@@ -45,32 +45,57 @@ const ApplyNowModal: React.FC<ApplyNowModalProps> = ({ open, onClose }) => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validate()) {
-      // Submit logic here
-      alert("Form submitted successfully!");
-      setForm(initialState);
-      setErrors({});
-      onClose();
+      setLoading(true);
+      const formData = new FormData();
+      formData.append("name", form.name);
+      formData.append("gender", form.gender);
+      formData.append("mobile", form.mobile);
+      formData.append("email", form.email);
+      formData.append("message", form.message);
+      if (form.resume) {
+        formData.append("resume", form.resume);
+      }
+      try {
+        const res = await fetch("/api/sendMail", {
+          method: "POST",
+          body: formData,
+        });
+        const data = await res.json();
+        if (data.success) {
+          alert("Apply job successfully!");
+          setForm(initialState);
+          setErrors({});
+          setLoading(false);
+          onClose();
+        } else {
+          setLoading(false);
+          alert("Failed to send email: " + (data.error || "Unknown error"));
+        }
+      } catch (err) {
+        setLoading(false);
+        alert("An error occurred while sending the email.");
+      }
     }
   };
 
   return (
-     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-    <div
-      className="bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-auto p-4 sm:p-8 relative max-h-screen overflow-y-auto"
-      style={{ maxHeight: "100dvh" }}
-    >
-      <button
-        className="absolute top-4 right-4 text-gray-400 hover:text-[#466DA8] text-3xl font-bold"
-        onClick={onClose}
-        aria-label="Close"
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+      <div
+        className="bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-auto p-4 sm:p-8 relative max-h-screen overflow-y-auto"
+        style={{ maxHeight: "100dvh" }}
       >
-        &times;
-      </button>
+        <button
+          className="absolute top-4 right-4 text-gray-400 hover:text-[#466DA8] text-3xl font-bold"
+          onClick={onClose}
+          aria-label="Close"
+        >
+          &times;
+        </button>
         <h2 className="text-3xl font-bold text-[#466DA8] text-center mb-2">Apply Now</h2>
-        <form className="space-y-5"  onSubmit={handleSubmit} noValidate>
+        <form className="space-y-5" onSubmit={handleSubmit} noValidate>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
             <input
@@ -168,9 +193,20 @@ const ApplyNowModal: React.FC<ApplyNowModalProps> = ({ open, onClose }) => {
           </div>
           <button
             type="submit"
-            className="w-full bg-[#466DA8] text-white py-3 rounded-lg font-semibold text-lg mt-2 hover:bg-[#2A356D] transition"
+            className="w-full bg-[#466DA8] text-white py-3 rounded-lg font-semibold text-lg mt-2 hover:bg-[#2A356D] transition flex items-center justify-center"
+            disabled={loading}
           >
-            Apply Now
+            {loading ? (
+              <span>
+                <svg className="animate-spin h-5 w-5 mr-2 inline" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                </svg>
+                Sending...
+              </span>
+            ) : (
+              "Apply Now"
+            )}
           </button>
         </form>
       </div>

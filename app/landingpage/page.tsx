@@ -10,7 +10,7 @@ const Landingpage = () => {
         <div className="bg-[#EDEFF7]  rounded-xl shadow-xl max-w-xl w-full p-4 sm:p-8 relative max-h-[90vh] overflow-y-auto">
           <button
             onClick={() => setShow(false)}
-            className="absolute top-4 right-2 text-gray-500 hover:text-red-500 text-3xl font-bold focus:outline-none"
+            className="absolute top-4 right-2 text-gray-500 hover:text-red-500 sm:text-5xl text-3xl font-bold focus:outline-none"
             aria-label="Close"
           >
             &times;

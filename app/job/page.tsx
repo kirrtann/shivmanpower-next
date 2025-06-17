@@ -20,6 +20,7 @@ const Job = () => {
           {Jobdeatil.map(job => (
             <Link 
             href={`/jobdeailpage/${job.id}`}
+             prefetch={true} 
               key={job.id}
               className="flex items-center bg-white rounded-xl shadow border border-gray-100 p-6 gap-6 hover:shadow-lg transition-shadow"
             >

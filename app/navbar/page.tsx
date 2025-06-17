@@ -1,8 +1,6 @@
 "use client"
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-// import { Link } from "react-router-dom";
-
 import Link from "next/link";
 import ApplyNowModal from "../common/applyfrom";
 const Navbar = () => {
@@ -21,10 +19,10 @@ const Navbar = () => {
 
           {/* Desktop Nav Links */}
           <div className="hidden lg:flex items-center space-x-4 text-[15px] text-white">
-            <Link href="/" className="hover:bg-white hover:text-[#466DA8] px-5 py-2 transition">Home</Link>
-            <Link href="/services" className="hover:bg-white hover:text-[#466DA8] px-5 py-2 transition">Services</Link>
-            <Link href="/job" className="hover:bg-white hover:text-[#466DA8] px-5 py-2 transition">Job Opening</Link>
-            <Link href="/contact" className="hover:bg-white hover:text-[#466DA8] px-5 py-2 transition">Contact Us</Link>
+            <Link href="/" prefetch={true} className="hover:bg-white hover:text-[#466DA8] px-5 py-2 transition">Home</Link>
+            <Link href="/services" prefetch={true} className="hover:bg-white hover:text-[#466DA8] px-5 py-2 transition">Services</Link>
+            <Link href="/job" prefetch={true} className="hover:bg-white hover:text-[#466DA8] px-5 py-2 transition">Job Opening</Link>
+            <Link href="/contact" prefetch={true} className="hover:bg-white hover:text-[#466DA8] px-5 py-2 transition">Contact Us</Link>
           </div>
 
           {/* Apply Button + Hamburger */}
@@ -56,6 +54,7 @@ const Navbar = () => {
               <div className="border-b pb-2">
                 <button
                   onClick={() => setShowApply(true)}
+                  
                   className="bg-white text-[#466DA8] sm:hidden  px-7 py-2 rounded-full shadow hover:bg-[#466DA8] hover:text-white border border-[#466DA8] transition"
                 >
                   + Apply Now
@@ -67,6 +66,7 @@ const Navbar = () => {
                 href="/"
                 className="block py-3 px-4 text-xl rounded-lg hover:bg-white hover:text-[#466DA8] transition"
                 onClick={toggleMenu}
+                prefetch={true}
               >
                 Home
               </Link>
@@ -76,6 +76,7 @@ const Navbar = () => {
               <Link href="/services"
                 className="block py-3 px-4 text-xl rounded-lg hover:bg-white hover:text-[#466DA8] transition"
                 onClick={toggleMenu}
+                prefetch={true}
               >
                 Services
               </Link>
@@ -86,8 +87,9 @@ const Navbar = () => {
                 href="/job"
                 className="block py-3 px-4 text-xl rounded-lg hover:bg-white hover:text-[#466DA8] transition"
                 onClick={toggleMenu}
+                prefetch={true}
               >
-                Job Opaning
+                Job Opening
               </Link>
             </li>
             <li>
@@ -96,6 +98,7 @@ const Navbar = () => {
                 href="/contact"
                 className="block py-3 px-4 text-xl rounded-lg hover:bg-white hover:text-[#466DA8] transition"
                 onClick={toggleMenu}
+                prefetch={true}
               >
                 Contact
               </Link>
