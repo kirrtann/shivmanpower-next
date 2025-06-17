@@ -8,7 +8,7 @@ const IMage = ({ header, pere, detail, time, location,headercss }: IMageProps) =
   return (
     <div className="bg-[#2A356D] opacity-100 z-50">
       <div
-        className="bg-gradient-image bg-[url(/bgimg.jpg)] bg-center flex justify-center items-end sm:pb-5 max-h-[450px] min-h-[350px] sm:h-[380px]"
+        className="bg-gradient-image bg-[url(/bgimg.jpg)] bg-cover flex justify-center items-end sm:pb-5 max-h-[450px] min-h-[350px] sm:h-[380px]"
       >
         <div className="text-center text-white sm:px-12 px-2">
           <h3 className={headercss}>{header}</h3>
