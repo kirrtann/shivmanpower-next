@@ -72,9 +72,9 @@ const Contact = () => {
                     headercss="sm:text-3xl text-xl font-bold"
                 />
             </div>
-            <div className="max-w-[1250px] mx-auto py-12 px-[15px]  grid grid-cols-1 md:grid-cols-2 gap-10 ">
+            <div className=" mx-auto max-w-fit py-12 px-[15px]  items-start  grid grid-cols-1 md:grid-cols-2 gap-10">
                 {/* Contact Form */}
-                <form className="space-y-5  lg:pr-[100px]" onSubmit={handleSubmit}>
+                <form className="space-y-5 max-w-[400px]" onSubmit={handleSubmit}>
                     <h2 className=" mb-[10px] text-xl ">Keep In Touch</h2>
                     <div>
                         <input
@@ -138,17 +138,17 @@ const Contact = () => {
                         )}
                     </button>
                 </form>
-                <div className="bg-[#EDEFF7] text-[#888888] rounded-xl justify-center sm:p-8 p-4 flex flex-col text-[13px] ">
+                <div className="bg-[#EDEFF7] text-[#888888] rounded-xl justify-center h-fit sm:p-8 p-4 flex w-fit flex-col text-[13px]  max-w-[280px] sm:max-w-[400px] ">
                     <h2 className="text-xl font-medium text-black mb-4">Shiv Manpower Services Office</h2>
                     <div className="flex items-center gap-3 mb-4">
-                        <MdLocationOn className="sm:text-4xl text-2xl text-[#7a8493]" />
-                        <div className="w-[300px]">
-                            <span className="font-semibold">Address:</span> 702- 7th Floor Dynasty, B/S. Pintoo Garments, Nr. Navarangpura Stadium Circle, CG Road, Ahmedabad - 380009
+                        <MdLocationOn className="text-2xl text-[#7a8493]" />
+                        <div className="w-[300px] font-semibold">
+                            <span className="font-extrabold">Address:</span> 702- 7th Floor Dynasty, B/S. Pintoo Garments, Nr. Navarangpura Stadium Circle, CG Road, Ahmedabad - 380009
                         </div>
                     </div>
                     <div className="flex items-start gap-3 mb-4">
-                        <MdCall className="sm:text-4xl text-3xl text-[#7a8493]" />
-                        <div>
+                        <MdCall className="text-2xl text-[#7a8493]" />
+                        <div className="font-semibold">
                             <span className="font-semibold">Call Us :</span><br />
                             (O)+91 9714500484,<br />
                             (O)+91 9624237788,<br />
@@ -157,9 +157,9 @@ const Contact = () => {
                         </div>
                     </div>
                     <div className="flex items-center gap-3">
-                        <MdEmail className="sm:text-3xl text-2xl text-[#7a8493]" />
-                        <div>
-                            <span className="font-semibold">Email :</span> jayesh@shivmanpower.com
+                        <MdEmail className=" text-2xl text-[#7a8493]" />
+                        <div className="font-semibold">
+                            <span className="font-extrabold">Email :</span> jayesh@shivmanpower.com
                         </div>
                     </div>
                 </div>

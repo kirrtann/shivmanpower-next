@@ -6,6 +6,7 @@ const Servicdetail = [
     {
         id: "1",
         icon: <LuUserRoundPlus />,
+        img:"/souring re.jpeg",
         title: "Sourcing – Recruitments",
         description: ["Sourcing is also a sub-set of recruitment, which is proactively searching for the most talented candidates for a particular role. Outsourcing is a common technique where businesses contract out a business function, typically something non-critical such as payroll, to a third-party supplier. As part of the outsourcing process, businesses will draw up a list of potential third parties and choose the most appropriate for their needs."]
     },
@@ -13,6 +14,7 @@ const Servicdetail = [
         id: "2",
         icon: <RiSuitcaseLine />,
         title: "Payroll Solutions",
+         img:"/payroll.jpeg",
         descriptions: [
             "1. End to end processing of company payroll(s).",
             "2. Collect payroll information, Process, Produce, reports and files.",
@@ -24,6 +26,7 @@ const Servicdetail = [
         id: "3",
         icon: <LuUserRound />,
         title: "Housekeeping",
+         img:"/housekeeping.jpeg",
         descriptions: [
             "Housekeeping is the department deals essentially with cleanliness and all ancillary service attached to that.",
             "1. Dedicated Manpower.",
@@ -35,6 +38,7 @@ const Servicdetail = [
         id: "4",
         icon: <LuClock3 />,
         title: "Tea Time Services",
+         img:"/tea time.jpeg",
         descriptions: [
             "This service helps to reduce the company expenses where we provide a dedicated person who will make TEA, COFFEE, etc., and serve to employees, clients, customers at their respective locations, saving useful working hours."
         ]
@@ -43,6 +47,7 @@ const Servicdetail = [
         id: "5",
         icon: <IoCodeSlashSharp />,
         title: "IT Solutions",
+         img:"/it solution.jpeg",
         descriptions: [
             "1. We serve our customers 24*7.",
             "2. Diagnose and resolve technical issues.",

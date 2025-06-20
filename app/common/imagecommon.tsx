@@ -4,13 +4,13 @@ import { IMageProps } from "./type";
 
 
 
-const IMage = ({ header, pere, detail, time, location,headercss }: IMageProps) => {
+const IMage = ({ header, pere, detail, time, location, headercss }: IMageProps) => {
   return (
-    <div className="bg-[#2A356D] opacity-100 z-50">
+    <div className="bg-[#2A356D] opacity-100 mt-10 z-50">
       <div
-        className="bg-gradient-image bg-[url(/bgimg.jpg)] bg-cover flex justify-center items-end sm:pb-5 max-h-[450px] min-h-[350px] sm:h-[380px]"
+        className="bg-gradient-image bg-[url(/bgimg.jpg)] bg-center sm:mt-24 mt-[20] flex justify-center items-center sm:pb-5 max-h-[350px] min-h-[300px] sm:h-[300px]"
       >
-        <div className="text-center text-white sm:px-12 px-2">
+        <div className="text-center items-center text-white sm:px-12 px-2">
           <h3 className={headercss}>{header}</h3>
           <p className="sm:mt-[20px] ">{pere}</p>
           <h4 className="sm:text-2xl  sm:mt-[20px]">{detail}</h4>

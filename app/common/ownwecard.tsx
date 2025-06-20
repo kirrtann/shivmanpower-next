@@ -53,11 +53,11 @@ const TestimonialSection = () => {
                                     <div className="flex justify-end text-4xl text-[#424dc1] mb-2">
                                         <span>&rdquo;</span>
                                     </div>
-                                    <div className="flex flex-col sm:flex-row items-center sm:items-start mb-2">
+                                    <div className="flex flex-col sm:flex-row items-center sm:items-start mb-2 font-semibold">
                                         <span className="font-semibold text-lg">{testimonial.name}</span>
                                         <span className="ml-2 text-[15px] text-gray-500">{testimonial.position}</span>
                                     </div>
-                                    <div className="text-gray-600 text-sm">{testimonial.text}</div>
+                                    <div className="text-gray-600 text-sm font-semibold">{testimonial.text}</div>
                                 </div>
                             </div>
                         ))}

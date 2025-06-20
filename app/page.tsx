@@ -11,11 +11,15 @@ import { Jobdeatil } from "./common/jobdetail";
 import TestimonialSection from "./common/ownwecard";
 
 export default function Home() {
-    const [openApply, setOpenApply] = useState(false);
+  const [openApply, setOpenApply] = useState(false);
   const slideimg = [
-    { img: '/slide-1.png', alt: 'Car Image' },
-    { img: '/slide-2.png', alt: 'Civil Image' }
-  ];
+
+    { img: '/queue-to-apply-job-recruitment.svg', alt: 'Job Consultancy Complaint' },
+    { img: '/online-recruitment.svg', alt: 'Job Consultancy Complaint' },
+    { img: '/group-of-young-businessmen-and-women-as-a-teamwork-meeting-around-a-table-in-conference-room.svg', alt: 'Job Consultancy Complaint' },
+    { img: '/online-recruitment.svg', alt: 'Job Consultancy Complaint' },
+  
+  ]
   const [current, setCurrent] = useState(0);
   const prevSlide = () => setCurrent((prev) => (prev === 0 ? slideimg.length - 1 : prev - 1));
   const nextSlide = () => setCurrent((prev) => (prev === slideimg.length - 1 ? 0 : prev + 1));
@@ -25,12 +29,12 @@ export default function Home() {
         <img
           src={slideimg[current].img}
           alt={slideimg[current].alt}
-          className="w-full h-full object-cover opacity-80 pointer-events-none" 
+          className="w-full max-h-[450px]  object-center opacity-90 pointer-events-none"
         />
-        <div className="absolute inset-0 bg-black opacity-60 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[#2A356D]/70 opacity-60 pointer-events-none"></div>
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white pointer-events-none">
           <h3 className="sm:text-4xl font-bold mb-2 drop-shadow-lg">Find the career you deserve</h3>
-          <p className="sm:text-lg text-[12px] drop-shadow-lg">Your job search starts and ends with us.</p>
+          <p className="sm:text-lg text-[12px] font-semibold drop-shadow-lg">Your job search starts and ends with us.</p>
         </div>
 
         <button
@@ -63,7 +67,7 @@ export default function Home() {
       <div id="about-shiv-manpower" className="max-w-[1250px] sm:py-16 py-5 px-1  mx-auto text-center">
         <div className="">
           <h3 className="text-3xl  mb-5 font-bold">About Shiv Manpower</h3>
-          <p className="text-[#888888] text-[15px]">
+          <p className="text-[#888888] text-[16px] font-semibold">
             Shiv Manpower Services is registered firm under the “The Ministry of Micro, Small and Medium Enterprises” a branch of the Government of India. Shiv Manpower Services is a group of expertise, which is self-motivated, dynamic & qualified professionals working towards a common goal "Customer Satifaction". We render basic services of human resources development. It has been reiable resource fuelling for companies with competent reliable prospects. The team comprises of quality Manpower like graduates. Post graduates, Engineers & MBAs from reputed institutes & experience persons from well-known companies.
           </p>
         </div>
@@ -82,8 +86,8 @@ export default function Home() {
             </Link>
           ))}
         </div>
-         <Link
-              href="/services" className="mt-2 px-8 py-3 border-2 border-[#466DA8] text-[#222] rounded-lg hover:bg-[#466DA8] hover:text-white transition font-medium text-base">
+        <Link
+          href="/services" className="mt-2 px-8 py-3 border-2 border-[#466DA8] text-[#222] rounded-lg hover:bg-[#466DA8] hover:text-white transition font-medium text-base">
           View More <span className="inline-block ml-2">&#8250;</span>
         </Link>
       </div>
@@ -127,11 +131,11 @@ export default function Home() {
                     {job.department || job.JobProfile?.JobProfile}
                   </div>
                   <div className="flex flex-wrap items-center text-gray-500 text-sm gap-x-4 gap-y-1">
-                    <span className="flex items-center gap-1">
+                    <span className="flex items-center font-bold gap-1">
                       <PiBriefcaseMetalLight />
                       {job.time}
                     </span>
-                    <span className="flex items-center gap-1">
+                    <span className="flex items-center font-bold gap-1">
                       <GoLocation />
                       {job.location}
                     </span>

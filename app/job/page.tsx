@@ -35,11 +35,11 @@ const Job = () => {
                   {job.department}
                 </p>
                 <div className="flex flex-wrap items-center text-gray-500 text-sm gap-x-4 gap-y-1">
-                  <span className="flex items-center gap-1">
+                  <span className="flex items-center font-bold gap-1">
                     <PiBriefcaseMetalLight />
                     {job.time}
                   </span>
-                  <span className="flex items-center gap-1">
+                  <span className="flex items-center font-bold gap-1">
                     <GoLocation />
                     {job.location}
                   </span>
