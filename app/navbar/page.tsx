@@ -26,7 +26,7 @@ const Navbar = () => {
               href="/"
               prefetch={true}
               onClick={toggleMenu}
-              className={`hover:bg-white hover:text-[#466DA8] px-5 py-2 transition ${pathname === "/" ? "bg-white text-[#466DA8] rounded-md" : ""}`}
+              className={`hover:bg-white hover:rounded-md hover:text-[#466DA8] px-5 py-2 transition ${pathname === "/" ? "bg-white text-[#466DA8] rounded-md" : ""}`}
             >
               Home
             </Link>
@@ -34,7 +34,7 @@ const Navbar = () => {
               href="/services"
               prefetch={true}
               onClick={toggleMenu}
-              className={`hover:bg-white hover:text-[#466DA8] px-5 py-2 transition ${pathname === "/services" ? "bg-white text-[#466DA8] rounded-md" : ""}`}
+              className={`hover:bg-white hover:rounded-md hover:text-[#466DA8] px-5 py-2 transition ${pathname === "/services" ? "bg-white text-[#466DA8] rounded-md" : ""}`}
             >
               Services
             </Link>
@@ -42,7 +42,7 @@ const Navbar = () => {
               href="/job"
               prefetch={true}
               onClick={toggleMenu}
-              className={`hover:bg-white hover:text-[#466DA8] px-5 py-2 transition ${pathname === "/job" ? "bg-white text-[#466DA8] rounded-md" : ""}`}
+              className={`hover:bg-white hover:rounded-md hover:text-[#466DA8] px-5 py-2 transition ${pathname === "/job" ? "bg-white text-[#466DA8] rounded-md" : ""}`}
             >
               Job Opening
             </Link>
@@ -50,7 +50,7 @@ const Navbar = () => {
               href="/contact"
               prefetch={true}
               onClick={toggleMenu}
-              className={`hover:bg-white hover:text-[#466DA8] px-5 py-2 transition ${pathname === "/contact" ? "bg-white rounded-md text-[#466DA8] " : ""}`}
+              className={`hover:bg-white hover:rounded-md hover:text-[#466DA8] px-5 py-2 transition ${pathname === "/contact" ? "bg-white rounded-md text-[#466DA8] " : ""}`}
             >
               Contact Us
             </Link>
@@ -93,7 +93,7 @@ const Navbar = () => {
             <li>
               <Link
                 href="/"
-                className={`block py-3 px-4 text-xl rounded-lg hover:bg-white hover:text-[#466DA8] transition ${pathname === "/" ? "bg-white text-[#466DA8] rounded-md" : ""
+                className={`block py-3 px-4 text-xl rounded-lg hover:bg-white hover:rounded-md hover:text-[#466DA8] transition ${pathname === "/" ? "bg-white text-[#466DA8] rounded-md" : ""
                   }`}
                 onClick={toggleMenu}
                 prefetch={true}
@@ -105,7 +105,7 @@ const Navbar = () => {
               <div className="border-t border-white/20 my-1" />
               <Link
                 href="/services"
-                className={`block py-3 px-4 text-xl rounded-lg hover:bg-white hover:text-[#466DA8] transition ${pathname === "/services" ? "bg-white text-[#466DA8] rounded-md" : ""
+                className={`block py-3 px-4 text-xl rounded-lg hover:bg-white  hover:rounded-md hover:text-[#466DA8] transition ${pathname === "/services" ? "bg-white text-[#466DA8] rounded-md" : ""
                   }`}
                 onClick={toggleMenu}
                 prefetch={true}
@@ -117,7 +117,7 @@ const Navbar = () => {
               <div className="border-t border-white/20 my-1" />
               <Link
                 href="/job"
-                className={`block py-3 px-4 text-xl rounded-lg hover:bg-white hover:text-[#466DA8] transition ${pathname === "/job" ? "bg-white text-[#466DA8] rounded-md" : ""
+                className={`block py-3 px-4 text-xl rounded-lg hover:bg-white  hover:rounded-md hover:text-[#466DA8] transition ${pathname === "/job" ? "bg-white text-[#466DA8] rounded-md" : ""
                   }`}
                 onClick={toggleMenu}
                 prefetch={true}
@@ -129,7 +129,7 @@ const Navbar = () => {
               <div className="border-t border-white/20 my-1" />
               <Link
                 href="/contact"
-                className={`block py-3 px-4 text-xl rounded-lg hover:bg-white hover:text-[#466DA8] transition ${pathname === "/contact" ? "bg-white text-[#466DA8] rounded-md" : ""
+                className={`block py-3 px-4 text-xl rounded-lg hover:bg-white hover:rounded-md hover:text-[#466DA8] transition ${pathname === "/contact" ? "bg-white text-[#466DA8] rounded-md" : ""
                   }`}
                 onClick={toggleMenu}
                 prefetch={true}
