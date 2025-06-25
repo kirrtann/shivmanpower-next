@@ -26,7 +26,7 @@ const Navbar = () => {
               href="/"
               prefetch={true}
               onClick={toggleMenu}
-              className={`hover:bg-white rounded-md hover:text-[#466DA8] px-5 py-2 transition ${pathname === "/" ? "bg-white text-[#466DA8] rounded-md" : ""}`}
+              className={`hover:bg-white rounded-md  hover:text-[#466DA8] px-5 py-2 transition ${pathname === "/" ? "bg-white text-[#466DA8] rounded-md" : ""}`}
             >
               Home
             </Link>
@@ -34,7 +34,7 @@ const Navbar = () => {
               href="/services"
               prefetch={true}
               onClick={toggleMenu}
-              className={`hover:bg-white rounded-md hover:text-[#466DA8] px-5 py-2 transition ${pathname === "/services" ? "bg-white text-[#466DA8] rounded-md" : ""}`}
+              className={`hover:bg-white rounded-md  hover:text-[#466DA8] px-5 py-2 transition ${pathname === "/services" ? "bg-white text-[#466DA8] rounded-md" : ""}`}
             >
               Services
             </Link>
@@ -50,7 +50,7 @@ const Navbar = () => {
               href="/contact"
               prefetch={true}
               onClick={toggleMenu}
-              className={`hover:bg-white rounded-md hover:text-[#466DA8] px-5 py-2 transition ${pathname === "/contact" ? "bg-white rounded-md text-[#466DA8] " : ""}`}
+              className={`hover:bg-white rounded-md  hover:text-[#466DA8] px-5 py-2 transition ${pathname === "/contact" ? "bg-white rounded-md text-[#466DA8] " : ""}`}
             >
               Contact Us
             </Link>
